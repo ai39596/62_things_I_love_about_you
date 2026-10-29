@@ -1,69 +1,69 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Orbital Interface</title><script>
-// The text of each note: notes[0] is note 01, notes[61] is note 62.
+// The text of each note: notes[0] is note 01, notes[63] is note 64.
 const notes = [
-    "זה שאת דואגת לאנשים שמסביבך",
-    "זה שאת יודעת לעמוד על שלך",
+    "זה שאת דואגת לאנשים שמסביבך, ושחשוב לך שיהיה להם טוב, גם כשזה לא קשור אלייך ישירות.",
+    "זה שאת יודעת לעמוד על שלך ולא מוותרת על מה שחשוב לך, גם כשזה לא תמיד הדבר הכי קל לעשות.",
     "איך שאת עובדת קשה בשביל מה שאת מנסה להשיג",
-    "החיוך שלך",
+    "החיוך שלך, במיוחד כשהוא אמיתי ואת שמחה ממשהו. יש משהו בלראות אותך מחייכת שפשוט עושה לי טוב.",
     "התחושה שיש לי כשאני לידך, שפתאום הכל רגוע וכל הדאגות שלי נעלמות",
     "זה שאת כועסת עליי שאני נפצע, זה ממש חמוד",
     "זה שאני יכול לבכות לידך, זה משהו שמאוד קשה לי לעשות ליד אנשים",
-    "זה שאת חכמה ומלמדת אותי דברים חדשים",
+    "זה שאת חכמה ושאני כל הזמן לומד ממך דברים חדשים. אני אוהב לשמוע איך את חושבת ולראות דברים מנקודת המבט שלך.",
     "זה שאת מזכירה לי לראות דברים בחיוביות",
     "זה שאני יכול לסמוך עלייך",
     "זה שאני מרגיש בטוח לידך",
     "זה שאני יכול להינות איתך מדברים פשוטים",
-    "העיניים שלך",
-    "איך שאת מעריכה דברים",
+    "העיניים היפות והמקסימות שלך שכיף לי להסתכל בהן",
+    "איך שאת יודעת להעריך גם את הדברים הקטנים, ולא לוקחת כמובן מאליו את מה שאני עושה בשבילך.",
     "זה שאת מקבלת אותי כמו שאני",
-    "זה שאת קוראת לי חתיך",
-    "זה שאת מתחשבת",
+    "זה שאת קוראת לי חתיך, ושגם אם אני לא תמיד יודע איך להגיב לזה, אני רוצה שתדעי שזה ממש עושה לי טוב לשמוע את זה ממך.",
+    "זה שאת מתחשבת באנשים שסביבך, חושבת גם על מה שהם מרגישים ויודעת לראות את הדברים גם מהצד שלהם.",
     "זה שהיו ואולי עוד יש לך פרפרים בבטן (נצנצים ברחם 😉)",
     "זה שאת נותנת לי להיות פתוח ואמיתי לידך",
-    "זה שאת חמודה",
-    "זה שאת שמה לב לדברים",
-    "זה שחשוב לך לעזור לסובבים אותך", 
-    "זה שאת אמיצה", 
-    "זה שאת אמביציוזית", 
-    "איך שאת משקיעה בקשר שלנו", 
-    "זה שאנחנו גם זוג אבל גם החברים הכי טובים", 
-    "זה שאכפת לך מהקשר שלנו וחשוב לך להנות אותו בצורה חזקה עם הרבה בטון", 
-    "זה שאכפת לך מעצמך", 
-    "זה שאת עובדת כדי להגיע ליעדים שלך", 
-    "זה שיש לך משמעת עצמית", 
-    "זה שאת כותבת, יש לך כישרון ואת מצליחה לרגש אותי", 
-    "זה שאת אופה זה ממש מגניב ואני רוצה שנעשה את זה יחד גם",
-    "זה שיש בך עומק", 
-    "זה שאת עושה דברים עם כוונה ולא ״סתם״", 
-    "זה שיש לך הרבה מאוד אינטליגנציה חברתית", 
-    "זה שאת ערכית", 
-    "זה שאת בן אדם חם ואוהב", 
-    "שפת האהבה שלך", 
-    "זה שאת רגישה מאוד", 
-    "זה שאת נותנת מקום לרגשות שלך בחיים שלך", 
-    "זה שאת בטוחה בעצמך", 
+    "זה שאת חמודה כל כך, לפעמים אפילו בלי שאת מנסה",
+    "זה שאת שמה לב לפרטים הקטנים, גם לאלה שאנשים אחרים אולי היו מפספסים",
+    "זה שחשוב לך לעזור לסובבים אותך",
+    "זה שאת אמיצה ומוכנה לעמוד מול אתגרים גדולים",
+    "זה שאת אמביציוזית שיש לך חלומות ומטרות ואת עושה דברים כדי להגיע אליהם כמו לקום ממש ממש מוקדם לעבוד על דברים, זה מדהים בעיניי",
+    "איך שאת משקיעה בקשר שלנו",
+    "זה שאנחנו גם זוג אבל גם החברים הכי טובים",
+    "זה שאכפת לך מהקשר שלנו וחשוב לך להנות אותו בצורה חזקה עם הרבה בטון",
+    "זה שאכפת לך מעצמך, מהעתיד שלך ומהדברים שעושים לך טוב",
+    "זה שאת עובדת כדי להגיע ליעדים שלך",
+    "זה שיש לך משמעת עצמית, ושאת מצליחה להמשיך לעבוד בשביל הדברים שחשובים לך גם כשאין לך כוח או חשק.",
+    "זה שאת כותבת, יש לך כישרון ואת מצליחה לרגש אותי",
+    "זה שאת אוהבת לאפות ושאת טובה בזה. אני אוהב שיש לך משהו שאת נהנית לעשות, ואני ממש רוצה שנאפה ביחד וניצור גם מהדבר הזה זיכרונות משלנו.",
+    "זה שיש בך כל כך הרבה עומק, במחשבות שלך, ברגשות שלך ובדרך שבה את מסתכלת על דברים",
+    "זה שאת עושה דברים עם כוונה ולא ״סתם״",
+    "זה שאת כל כך חרוצה ועושה המון כדי להשיג את מה שאת רוצה כמו לקום מוקדם מוקדם בבוקר כדי ללמוד לדפ״ר",
+    "זה שאת בן אדם עם ערכים, ושאת באמת משתדלת לחיות לפיהם ולא רק להגיד שהם חשובים לך.",
+    "זה שאת בן אדם כל כך חם ואוהב, ושיש לך דרך לגרום לאנשים שחשובים לך להרגיש את האהבה הזאת",
+    "שפת האהבה שלך",
+    "זה שאת רגישה מאוד, שאת מרגישה דברים בעוצמה ושאכפת לך באמת",
+    "זה שאת נותנת מקום לרגשות שלך בחיים שלך",
+    "זה שאת בטוחה בעצמך. את יודעת מה את שווה ולא צריכה כל הזמן אישור מאחרים",
     "החיבור שלך לבעלי חיים, כמו עם סימבה, עם החתול של השכונה בגינה וגם בגן חיות",
-    "זה שאת מחמיאה לי", 
-    "זה שאת מושלמת", 
-    "זה שאת מעריכה יותר השקעה מחומריות, זה מראה שאת פה בשבילי ולא בשביל המתנות האלה", 
-    "זה שאת יכולה להיות גם בוגרת וגם שתותניקית, גב. קונדסית", 
-    "זה שאת מיוחדת ושונה מהרבה בנות אחרות שפגשתי בחיים שלי", 
-    "זה שאת חברותית ומצליחה להתחבר לאנשים בכל מקום", 
-    "איך שאת מספרת את הסיפור שלנו על השיחה עם הכיוון הלא ברור של עם עמית מליד שהפכה למה שאנחנו היום", 
-    "הכישרון שלך בעיצוב ציפורניים", 
-    "היופי שלך",
-    "התשוקה שלך לנושאים שחשובים לך",
+    "זה שאת מחמיאה לי",
+    "זה שאת מושלמת בעיניי, לא כי אין בך חסרונות, אלא כי אני אוהב אותך בדיוק כמו שאת, עם כל הדברים שהופכים אותך לליה.",
+    "זה שאת מעריכה יותר השקעה מחומריות, זה מראה שאת פה בשבילי ולא בשביל המתנות האלה",
+    "זה שאת יכולה להיות גם בוגרת וגם שתותניקית, גב. קונדסית",
+    "זה שאת מיוחדת ושונה מהרבה בנות אחרות שפגשתי בחיים שלי",
+    "זה שאת חברותית ומצליחה להתחבר לאנשים בכל מקום",
+    "איך שאת מספרת את הסיפור שלנו על השיחה עם הכיוון הלא ברור של עם עמית מליד שהפכה למה שאנחנו היום",
+    "הכישרון שלך בעיצוב ציפורניים, היצירתיות והדיוק שיש לך בזה. אני אוהב לראות את הדברים שאת מצליחה ליצור וכמה מחשבה את משקיעה בהם.",
+    "היופי שלך, שאני לא מפסיק להתפעל ממנו. יש רגעים שאני פשוט מסתכל עלייך וחושב לעצמי כמה את יפה.",
+    "התשוקה שלך לנושאים שחשובים לך, הדרך שבה את מדברת עליהם בהתלהבות והאור שיש בך כשאת עושה משהו שאת באמת אוהבת.",
     "השיחות שלנו עד אמצע הלילה",
-    "הזיכרונות שצברתי איתך", 
-    "הדייטים שלנו", 
-    "הדרך שבה את מסתכלת על העולם", 
-    "איך שאת שמחה שאת פוגשת אותי", 
-    "העובדה שאי אפשר להחליף אותך באף אחת אחרת",
-    "זה שאני ממשיך לגלות בך דברים חדשים", 
-    "זה שאת גורמת לי לחייך כשאני חושב עלייך", 
-    "שאת מצליחה להצחיק אותי גם כשאני לא במצב רוח טוב", 
-    "הכנות שלך איתי", 
-    "הלב הטוב שלך", 
+    "הזיכרונות שצברתי איתך",
+    "הדייטים שלנו",
+    "הדרך שבה את מסתכלת על העולם, שלפעמים שונה משלי וגורמת לי לעצור ולחשוב על דברים אחרת",
+    "איך שאת שמחה כשאנחנו נפגשים, והדרך שבה אני יכול לראות עלייך שהתגעגעת אליי",
+    "העובדה שאי אפשר להחליף אותך באף אחת אחרת, כי אף אחת אחרת היא לא את. יש בך שילוב של כל כך הרבה דברים שאני אוהב, ואין מישהי שיכולה להיות ליה במקומך.",
+    "זה שגם אחרי כל הזמן שאנחנו מכירים אני ממשיך לגלות בך דברים חדשים, וכל פעם כזאת אני מרגיש שאני מכיר אותך קצת יותר טוב ומתאהב בעוד חלק ממך.",
+    "זה שאת גורמת לי לחייך כשאני חושב עלייך",
+    "שאת מצליחה להצחיק אותי גם כשאני לא במצב רוח טוב",
+    "הכנות שלך איתי",
+    "הלב הטוב שלך",
     "ליה. פשוט אותך. כמו שאת"
 ];
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const total = points.length;
         for (let i = 0; i < total; i++) {
             const p = points[i];
-            const count = p.clickable ? 62 : total - 62;
-            const index = p.clickable ? i : i - 62;
+            const count = p.clickable ? 64 : total - 64;
+            const index = p.clickable ? i : i - 64;
             const z = 1 - 2 * (index + 0.5) / count;
             const theta = index * goldenAngle + (p.clickable ? 1.7 : 0);
             const radial = Math.sqrt(1 - z * z);
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.dir = 'rtl';
     document.title = 'שישים ושניים דברים שאני אוהב בך';
     document.querySelector('.side h1').innerHTML = 'שישים ושניים דברים<br><span style="color:var(--site-primary)">שאני אוהב בך</span>';
-    document.querySelector('.side p').textContent = 'שישים ושניים דברים שאני אוהב בך, אחד לכל יום שאנחנו ביחד.';
+    document.querySelector('.side p').textContent = 'שישים ושניים דברים שאני אוהב בך, אחד לכל יום שאנחנו ביחד (ועוד שניים כי את כל כך מדהימה שלא יכולתי להסתפק ב־62).';
     document.querySelector('.brand').innerHTML = 'LOEVE<span style="color:#e9a7bf"> / פתקים</span>';
     document.querySelector('.eyebrow').textContent = 'עולם של רגעים קטנים';
     document.querySelector('.status').lastChild.textContent = ' האהבה באוויר';
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('mode').textContent = 'תצוגה חיצונית';
     document.getElementById('pause').textContent = 'השהיה';
     document.getElementById('reset').textContent = 'איפוס';
-    document.querySelector('.metrics').innerHTML = 'רגעים קטנים <strong>62 פתקים</strong><br>מרחפים יחד <strong id="tracking">1,800 חלקיקים</strong><br>מצביע <strong id="pointer">0.00 / 0.00</strong><br>אווירה <strong>LOEVE</strong>';
+    document.querySelector('.metrics').innerHTML = 'רגעים קטנים <strong>64 פתקים</strong><br>מרחפים יחד <strong id="tracking">1,800 חלקיקים</strong><br>מצביע <strong id="pointer">0.00 / 0.00</strong><br>אווירה <strong>LOEVE</strong>';
     document.getElementById('orb').setAttribute('aria-label', 'כדור תלת־ממדי מסתובב ואינטראקטיבי של חלקיקים');
     note.setAttribute('dir', 'rtl');
     note.innerHTML = '<div style="color:#ff7184;letter-spacing:.08em;font-size:10px">◈ פתק מספר <span id="nodeNumber"></span></div><h2 style="margin:12px 0;color:#fff;font-size:21px">אני אוהב את</h2><p id="noteText" style="color:#dcb7be"></p><div style="font-size:22px;color:#ff9baa;text-align:center">♥</div>';
@@ -206,9 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="jClose" aria-label="סגירה">×</button>
             <h2>איך זה עובד?</h2>
             <ul>
-                <li><b>♥ הנקודות הזוהרות</b> – בכדור יש 62 נקודות, ובכל אחת מחכה דבר אחד שאני אוהב בך. לחצי על נקודה כדי לפתוח את הפתק.</li>
+                <li><b>♥ הנקודות הזוהרות</b> – בכדור יש 64 נקודות, ובכל אחת מחכה דבר אחד שאני אוהב בך. לחצי על נקודה כדי לפתוח את הפתק.</li>
                 <li><b>סגירת פתק</b> – לחצי שוב על אותה נקודה, על הפתק עצמו או בכל מקום אחר.</li>
                 <li><b>סיבוב הכדור</b> – גררי עם האצבע או עם העכבר כדי לסובב את הכדור ולמצוא עוד נקודות.</li>
+                <li><b>זום</b> – כמו שעושים זום בכל אפליקציה אחרת</li>
                 <li><b>יומן האהבה שלנו</b> – הכפתור למעלה פותח לוח שנה. כל יום שאנחנו ביחד מסומן בלב ורוד, ובחצים אפשר לעבור בין החודשים.</li>
             </ul>
             <button class="gStart">יאללה, בואי נתחיל ♥</button>
@@ -299,4 +300,4 @@ document.addEventListener('DOMContentLoaded', () => {
 .jDay.today:before{color:#e0406f;text-shadow:0 0 8px #ff799f}
 .jDay.today:not(.love){outline:2px solid #ff799f;border-radius:50%}
 </style></head><body><main id="app"><div class="grid decoration"></div><canvas id="orb" aria-label="Interactive rotating three-dimensional particle sphere"></canvas><div class="hud"><header><div><div class="brand">LOEVE<span style="color:#e9a7bf"> / NOTES</span></div><div class="eyebrow">A UNIVERSE OF LITTLE MOMENTS</div></div><div class="status"><span class="dot"></span> LOVE IS IN THE AIR</div></header><div class="side"><h1>Little notes,<br><span style="color:var(--site-primary)">big feelings.</span></h1><div class="line decoration"></div><p>Fifty little notes floating together. Select a glowing dot to discover one.</p></div><div class="bottom"><div class="panel"><div class="panel-title">◈ FIELD CONTROLS</div><div class="row"><label for="density">PARTICLE DENSITY</label><output id="densityOut">1800</output></div><input id="density" type="range" min="500" max="4000" step="100" value="1800"><div class="row"><label for="speed">FLOW VELOCITY</label><output id="speedOut">0.2×</output></div><input id="speed" type="range" min="0" max="3" step="0.1" value="0.2"><div class="actions"><button id="mode" class="active">INSIDE VIEW</button><button id="pause">PAUSE</button><button id="reset">RESET</button></div></div><div class="metrics">LITTLE MOMENTS <strong>50 NOTES</strong><br>FLOATING TOGETHER <strong id="tracking">1,800 NODES</strong><br>POINTER <strong id="pointer">0.00 / 0.00</strong><br>MOOD <strong>LOEVE</strong></div></div><div class="footer">LOEVE — A LITTLE UNIVERSE OF NOTES</div></div></main><script>
-const canvas=document.getElementById('orb'),ctx=canvas.getContext('2d');const density=document.getElementById('density'),speed=document.getElementById('speed'),densityOut=document.getElementById('densityOut'),speedOut=document.getElementById('speedOut');let W=0,H=0,dpr=1,points=[],yaw=.25,pitch=.1,zoom=1,inside=true,paused=false,drag=false,lastX=0,lastY=0,t=0,selected=null,hitNodes=[],downX=0,downY=0;const note=document.createElement('aside');note.id='nodeNote';note.style.cssText='display:none;position:absolute;z-index:5;right:clamp(18px,5vw,70px);top:22%;width:min(300px,80vw);padding:22px;background:#210c13f2;border:1px solid #ff5b70;border-radius:12px;box-shadow:0 0 35px #ff344533;color:#ffe6e9;font:13px/1.7 Inter,system-ui,sans-serif;pointer-events:auto';note.innerHTML='<div style="color:#ff7184;letter-spacing:.2em;font-size:10px">◈ ACTIVE NODE <span id="nodeNumber"></span></div><h2 style="margin:12px 0;color:#fff;font-size:21px">Node note</h2><p style="color:#dcb7be">This is a sample note attached to this particle. Each of the 50 red nodes can hold its own content.</p><div style="font-size:11px;color:#ff9baa">Click the node again or anywhere else to close.</div>';document.getElementById('app').append(note);function closeNote(){selected=null;note.style.display='none'}function resize(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}window.addEventListener('resize',resize);resize();function generate(){let n=+density.value;points=[];for(let i=0;i<n+62;i++){let z=1-2*(i+.5)/(n+62),theta=i*2.399963229728653,rad=Math.sqrt(1-z*z);points.push({x:Math.cos(theta)*rad,y:z,z:Math.sin(theta)*rad,phase:Math.random()*6.283,size:i<62?3.5:Math.random()*.65+.35,clickable:i<62,id:i+1})}densityOut.textContent=n.toLocaleString();document.getElementById('tracking').textContent='62 ACTIVE / '+n.toLocaleString()+' AMBIENT';closeNote()}generate();density.addEventListener('input',generate);speed.addEventListener('input',()=>speedOut.textContent=(+speed.value).toFixed(1)+'×');document.getElementById('pause').onclick=e=>{paused=!paused;e.target.textContent=paused?'RESUME':'PAUSE';e.target.classList.toggle('active',paused)};document.getElementById('mode').onclick=e=>{inside=!inside;closeNote();e.target.textContent=inside?'INSIDE VIEW':'EXTERNAL VIEW';e.target.classList.toggle('active',inside)};document.getElementById('reset').onclick=()=>{yaw=.25;pitch=.1;zoom=1;inside=true;closeNote();document.getElementById('mode').textContent='INSIDE VIEW';document.getElementById('mode').classList.add('active')};canvas.addEventListener('pointerdown',e=>{drag=true;downX=lastX=e.clientX;downY=lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointerup',e=>{drag=false;if(Math.hypot(e.clientX-downX,e.clientY-downY)>7)return;let r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let nearest=null,best=16;for(let a of hitNodes){let dist=Math.hypot(a.sx-x,a.sy-y);if(dist<best){best=dist;nearest=a}}if(nearest&&selected!==nearest.p.id){selected=nearest.p.id;document.getElementById('nodeNumber').textContent=String(selected).padStart(2,'0');note.style.display='block'}else closeNote()});canvas.addEventListener('pointermove',e=>{if(drag){yaw+=(e.clientX-lastX)*.005;pitch=Math.max(-1.4,Math.min(1.4,pitch+(e.clientY-lastY)*.005));lastX=e.clientX;lastY=e.clientY}let r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;canvas.style.cursor=hitNodes.some(a=>Math.hypot(a.sx-x,a.sy-y)<16)?'pointer':drag?'grabbing':'grab';document.getElementById('pointer').textContent=((x/W)*2-1).toFixed(2)+' / '+((y/H)*2-1).toFixed(2)});canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.45,Math.min(2.4,zoom+e.deltaY*.0007))},{passive:false});document.addEventListener('pointerdown',e=>{if(!canvas.contains(e.target)&&!note.contains(e.target))closeNote()});note.addEventListener('click',closeNote);function render(){requestAnimationFrame(render);if(!paused)t+=.004*(+speed.value);ctx.clearRect(0,0,W,H);const cx=W*(W<800?.52:.54),cy=H*(W<520?.5:.49),radius=Math.min(W*.66,H*.82)*zoom*(inside?1.05:.48),cyaw=Math.cos(yaw+t*.13),syaw=Math.sin(yaw+t*.13),cp=Math.cos(pitch),sp=Math.sin(pitch);let visible=[];for(let p of points){let flow=t*(.16+.12*Math.sin(p.y*3))+p.phase*.035,x=p.x*Math.cos(flow)-p.z*Math.sin(flow),z=p.x*Math.sin(flow)+p.z*Math.cos(flow),y=p.y,x1=x*cyaw-z*syaw,z1=x*syaw+z*cyaw,y1=y*cp-z1*sp,z2=y*sp+z1*cp,perspective=inside?1/(1+z2*.30):1/(1+z2*.18),sx=cx+x1*radius*perspective,sy=cy+y1*radius*perspective;if(sx<0||sx>W||sy<0||sy>H)continue;visible.push({sx,sy,z:z2,p,alpha:Math.max(.14,Math.min(1,.55-z2*.32)),scale:perspective})}visible.sort((a,b)=>b.z-a.z);hitNodes=visible.filter(a=>a.p.clickable);const glow=ctx.createRadialGradient(cx,cy,0,cx,cy,radius*1.2);glow.addColorStop(0,'rgba(100,10,25,.10)');glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);for(let a of visible){let active=a.p.clickable,flicker=.8+.2*Math.sin(t*3+a.p.phase),r=Math.max(.4,a.p.size*a.scale*(inside?1.1:1.35));if(active){ctx.shadowColor='#ff354e';ctx.shadowBlur=selected===a.p.id?28:13}ctx.beginPath();ctx.fillStyle=active?'rgba(255,75,96,'+a.alpha*flicker+')':'rgba(138,37,53,'+a.alpha*flicker*.50+')';ctx.arc(a.sx,a.sy,r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;if(selected===a.p.id){ctx.strokeStyle='#ff8b9a';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(a.sx,a.sy,r+8,0,Math.PI*2);ctx.stroke()}}ctx.save();ctx.strokeStyle='rgba(220,65,90,.23)';ctx.lineWidth=1;ctx.setLineDash([4,9]);ctx.beginPath();ctx.arc(cx,cy,Math.min(W,H)*.055,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='rgba(235,90,110,.5)';let s=14;ctx.beginPath();ctx.moveTo(cx-s,cy);ctx.lineTo(cx-5,cy);ctx.moveTo(cx+5,cy);ctx.lineTo(cx+s,cy);ctx.moveTo(cx,cy-s);ctx.lineTo(cx,cy-5);ctx.moveTo(cx,cy+5);ctx.lineTo(cx,cy+s);ctx.stroke();ctx.restore()}render();</script></body></html>
+const canvas=document.getElementById('orb'),ctx=canvas.getContext('2d');const density=document.getElementById('density'),speed=document.getElementById('speed'),densityOut=document.getElementById('densityOut'),speedOut=document.getElementById('speedOut');let W=0,H=0,dpr=1,points=[],yaw=.25,pitch=.1,zoom=1,inside=true,paused=false,drag=false,lastX=0,lastY=0,t=0,selected=null,hitNodes=[],downX=0,downY=0;const note=document.createElement('aside');note.id='nodeNote';note.style.cssText='display:none;position:absolute;z-index:5;right:clamp(18px,5vw,70px);top:22%;width:min(300px,80vw);padding:22px;background:#210c13f2;border:1px solid #ff5b70;border-radius:12px;box-shadow:0 0 35px #ff344533;color:#ffe6e9;font:13px/1.7 Inter,system-ui,sans-serif;pointer-events:auto';note.innerHTML='<div style="color:#ff7184;letter-spacing:.2em;font-size:10px">◈ ACTIVE NODE <span id="nodeNumber"></span></div><h2 style="margin:12px 0;color:#fff;font-size:21px">Node note</h2><p style="color:#dcb7be">This is a sample note attached to this particle. Each of the 50 red nodes can hold its own content.</p><div style="font-size:11px;color:#ff9baa">Click the node again or anywhere else to close.</div>';document.getElementById('app').append(note);function closeNote(){selected=null;note.style.display='none'}function resize(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}window.addEventListener('resize',resize);resize();function generate(){let n=+density.value;points=[];for(let i=0;i<n+64;i++){let z=1-2*(i+.5)/(n+64),theta=i*2.399963229728653,rad=Math.sqrt(1-z*z);points.push({x:Math.cos(theta)*rad,y:z,z:Math.sin(theta)*rad,phase:Math.random()*6.283,size:i<64?3.5:Math.random()*.65+.35,clickable:i<64,id:i+1})}densityOut.textContent=n.toLocaleString();document.getElementById('tracking').textContent='64 ACTIVE / '+n.toLocaleString()+' AMBIENT';closeNote()}generate();density.addEventListener('input',generate);speed.addEventListener('input',()=>speedOut.textContent=(+speed.value).toFixed(1)+'×');document.getElementById('pause').onclick=e=>{paused=!paused;e.target.textContent=paused?'RESUME':'PAUSE';e.target.classList.toggle('active',paused)};document.getElementById('mode').onclick=e=>{inside=!inside;closeNote();e.target.textContent=inside?'INSIDE VIEW':'EXTERNAL VIEW';e.target.classList.toggle('active',inside)};document.getElementById('reset').onclick=()=>{yaw=.25;pitch=.1;zoom=1;inside=true;closeNote();document.getElementById('mode').textContent='INSIDE VIEW';document.getElementById('mode').classList.add('active')};canvas.addEventListener('pointerdown',e=>{drag=true;downX=lastX=e.clientX;downY=lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointerup',e=>{drag=false;if(Math.hypot(e.clientX-downX,e.clientY-downY)>7)return;let r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let nearest=null,best=16;for(let a of hitNodes){let dist=Math.hypot(a.sx-x,a.sy-y);if(dist<best){best=dist;nearest=a}}if(nearest&&selected!==nearest.p.id){selected=nearest.p.id;document.getElementById('nodeNumber').textContent=String(selected).padStart(2,'0');note.style.display='block'}else closeNote()});canvas.addEventListener('pointermove',e=>{if(drag){yaw+=(e.clientX-lastX)*.005;pitch=Math.max(-1.4,Math.min(1.4,pitch+(e.clientY-lastY)*.005));lastX=e.clientX;lastY=e.clientY}let r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;canvas.style.cursor=hitNodes.some(a=>Math.hypot(a.sx-x,a.sy-y)<16)?'pointer':drag?'grabbing':'grab';document.getElementById('pointer').textContent=((x/W)*2-1).toFixed(2)+' / '+((y/H)*2-1).toFixed(2)});canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.45,Math.min(2.4,zoom+e.deltaY*.0007))},{passive:false});document.addEventListener('pointerdown',e=>{if(!canvas.contains(e.target)&&!note.contains(e.target))closeNote()});note.addEventListener('click',closeNote);function render(){requestAnimationFrame(render);if(!paused)t+=.004*(+speed.value);ctx.clearRect(0,0,W,H);const cx=W*(W<800?.52:.54),cy=H*(W<520?.5:.49),radius=Math.min(W*.66,H*.82)*zoom*(inside?1.05:.48),cyaw=Math.cos(yaw+t*.13),syaw=Math.sin(yaw+t*.13),cp=Math.cos(pitch),sp=Math.sin(pitch);let visible=[];for(let p of points){let flow=t*(.16+.12*Math.sin(p.y*3))+p.phase*.035,x=p.x*Math.cos(flow)-p.z*Math.sin(flow),z=p.x*Math.sin(flow)+p.z*Math.cos(flow),y=p.y,x1=x*cyaw-z*syaw,z1=x*syaw+z*cyaw,y1=y*cp-z1*sp,z2=y*sp+z1*cp,perspective=inside?1/(1+z2*.30):1/(1+z2*.18),sx=cx+x1*radius*perspective,sy=cy+y1*radius*perspective;if(sx<0||sx>W||sy<0||sy>H)continue;visible.push({sx,sy,z:z2,p,alpha:Math.max(.14,Math.min(1,.55-z2*.32)),scale:perspective})}visible.sort((a,b)=>b.z-a.z);hitNodes=visible.filter(a=>a.p.clickable);const glow=ctx.createRadialGradient(cx,cy,0,cx,cy,radius*1.2);glow.addColorStop(0,'rgba(100,10,25,.10)');glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);for(let a of visible){let active=a.p.clickable,flicker=.8+.2*Math.sin(t*3+a.p.phase),r=Math.max(.4,a.p.size*a.scale*(inside?1.1:1.35));if(active){ctx.shadowColor='#ff354e';ctx.shadowBlur=selected===a.p.id?28:13}ctx.beginPath();ctx.fillStyle=active?'rgba(255,75,96,'+a.alpha*flicker+')':'rgba(138,37,53,'+a.alpha*flicker*.50+')';ctx.arc(a.sx,a.sy,r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;if(selected===a.p.id){ctx.strokeStyle='#ff8b9a';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(a.sx,a.sy,r+8,0,Math.PI*2);ctx.stroke()}}ctx.save();ctx.strokeStyle='rgba(220,65,90,.23)';ctx.lineWidth=1;ctx.setLineDash([4,9]);ctx.beginPath();ctx.arc(cx,cy,Math.min(W,H)*.055,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='rgba(235,90,110,.5)';let s=14;ctx.beginPath();ctx.moveTo(cx-s,cy);ctx.lineTo(cx-5,cy);ctx.moveTo(cx+5,cy);ctx.lineTo(cx+s,cy);ctx.moveTo(cx,cy-s);ctx.lineTo(cx,cy-5);ctx.moveTo(cx,cy+5);ctx.lineTo(cx,cy+s);ctx.stroke();ctx.restore()}render();</script></body></html>

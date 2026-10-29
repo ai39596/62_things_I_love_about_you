@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Orbital Interface</title><script>
+// The text of each note: notes[0] is note 01, notes[61] is note 62.
+const notes = [
+    "זה שאת דואגת לאנשים שמסביבך",
+    "זה שאת יודעת לעמוד על שלך",
+    "איך שאת עובדת קשה בשביל מה שאת מנסה להשיג",
+    "החיוך שלך",
+    "התחושה שיש לי כשאני לידך, שפתאום הכל רגוע וכל הדאגות שלי נעלמות",
+    "זה שאת כועסת עליי שאני נפצע, זה ממש חמוד",
+    "זה שאני יכול לבכות לידך, זה משהו שמאוד קשה לי לעשות ליד אנשים",
+    "זה שאת חכמה ומלמדת אותי דברים חדשים",
+    "זה שאת מזכירה לי לראות דברים בחיוביות",
+    "זה שאני יכול לסמוך עלייך",
+    "זה שאני מרגיש בטוח לידך",
+    "זה שאני יכול להינות איתך מדברים פשוטים",
+    "העיניים שלך",
+    "איך שאת מעריכה דברים",
+    "זה שאת מקבלת אותי כמו שאני",
+    "זה שאת קוראת לי חתיך",
+    "זה שאת מתחשבת",
+    "זה שהיו ואולי עוד יש לך פרפרים בבטן (נצנצים ברחם 😉)",
+    "זה שאת נותנת לי להיות פתוח ואמיתי לידך",
+    "זה שאת חמודה",
+    "זה שאת שמה לב לדברים",
+    "זה שחשוב לך לעזור לסובבים אותך", 
+    "זה שאת אמיצה", 
+    "זה שאת אמביציוזית", 
+    "איך שאת משקיעה בקשר שלנו", 
+    "זה שאנחנו גם זוג אבל גם החברים הכי טובים", 
+    "זה שאכפת לך מהקשר שלנו וחשוב לך להנות אותו בצורה חזקה עם הרבה בטון", 
+    "זה שאכפת לך מעצמך", 
+    "זה שאת עובדת כדי להגיע ליעדים שלך", 
+    "זה שיש לך משמעת עצמית", 
+    "זה שאת כותבת, יש לך כישרון ואת מצליחה לרגש אותי", 
+    "זה שאת אופה זה ממש מגניב ואני רוצה שנעשה את זה יחד גם",
+    "זה שיש בך עומק", 
+    "זה שאת עושה דברים עם כוונה ולא ״סתם״", 
+    "זה שיש לך הרבה מאוד אינטליגנציה חברתית", 
+    "זה שאת ערכית", 
+    "זה שאת בן אדם חם ואוהב", 
+    "שפת האהבה שלך", 
+    "זה שאת רגישה מאוד", 
+    "זה שאת נותנת מקום לרגשות שלך בחיים שלך", 
+    "זה שאת בטוחה בעצמך", 
+    "החיבור שלך לבעלי חיים, כמו עם סימבה, עם החתול של השכונה בגינה וגם בגן חיות",
+    "זה שאת מחמיאה לי", 
+    "זה שאת מושלמת", 
+    "זה שאת מעריכה יותר השקעה מחומריות, זה מראה שאת פה בשבילי ולא בשביל המתנות האלה", 
+    "זה שאת יכולה להיות גם בוגרת וגם שתותניקית, גב. קונדסית", 
+    "זה שאת מיוחדת ושונה מהרבה בנות אחרות שפגשתי בחיים שלי", 
+    "זה שאת חברותית ומצליחה להתחבר לאנשים בכל מקום", 
+    "איך שאת מספרת את הסיפור שלנו על השיחה עם הכיוון הלא ברור של עם עמית מליד שהפכה למה שאנחנו היום", 
+    "הכישרון שלך בעיצוב ציפורניים", 
+    "היופי שלך",
+    "התשוקה שלך לנושאים שחשובים לך",
+    "השיחות שלנו עד אמצע הלילה",
+    "הזיכרונות שצברתי איתך", 
+    "הדייטים שלנו", 
+    "הדרך שבה את מסתכלת על העולם", 
+    "איך שאת שמחה שאת פוגשת אותי", 
+    "העובדה שאי אפשר להחליף אותך באף אחת אחרת",
+    "זה שאני ממשיך לגלות בך דברים חדשים", 
+    "זה שאת גורמת לי לחייך כשאני חושב עלייך", 
+    "שאת מצליחה להצחיק אותי גם כשאני לא במצב רוח טוב", 
+    "הכנות שלך איתי", 
+    "הלב הטוב שלך", 
+    "ליה. פשוט אותך. כמו שאת"
+];
+document.addEventListener('DOMContentLoaded', () => {
+    // Scatter both types of nodes throughout the volume, not just the shell.
+    function scatter() {
+        const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+        const total = points.length;
+        for (let i = 0; i < total; i++) {
+            const p = points[i];
+            const count = p.clickable ? 62 : total - 62;
+            const index = p.clickable ? i : i - 62;
+            const z = 1 - 2 * (index + 0.5) / count;
+            const theta = index * goldenAngle + (p.clickable ? 1.7 : 0);
+            const radial = Math.sqrt(1 - z * z);
+            const radius = 1;
+            p.x = Math.cos(theta) * radial * radius;
+            p.y = z * radius;
+            p.z = Math.sin(theta) * radial * radius;
+        }
+    }
+    scatter();
+    document.getElementById('density').addEventListener('input', scatter);
+    const velocity = document.getElementById('speed');
+    velocity.value = '0.1';
+    velocity.dispatchEvent(new Event('input'));
+    // Show the entire outside sphere by default.
+    document.getElementById('mode').click();
+    zoom = 0.72;
+    if (window.matchMedia('(max-width: 600px)').matches) zoom = 1.35;
+    // Localize the interface and notes into Hebrew.
+    document.documentElement.lang = 'he';
+    document.documentElement.dir = 'rtl';
+    document.title = 'שישים ושניים דברים שאני אוהב בך';
+    document.querySelector('.side h1').innerHTML = 'שישים ושניים דברים<br><span style="color:var(--site-primary)">שאני אוהב בך</span>';
+    document.querySelector('.side p').textContent = 'שישים ושניים דברים שאני אוהב בך, אחד לכל יום שאנחנו ביחד.';
+    document.querySelector('.brand').innerHTML = 'LOEVE<span style="color:#e9a7bf"> / פתקים</span>';
+    document.querySelector('.eyebrow').textContent = 'עולם של רגעים קטנים';
+    document.querySelector('.status').lastChild.textContent = ' האהבה באוויר';
+    document.querySelector('.footer').textContent = 'LOEVE — עולם קטן של פתקים';
+    document.querySelector('.panel-title').textContent = '◈ הגדרות';
+    document.querySelector('label[for="density"]').textContent = 'צפיפות חלקיקים';
+    document.querySelector('label[for="speed"]').textContent = 'מהירות תנועה';
+    document.getElementById('mode').textContent = 'תצוגה חיצונית';
+    document.getElementById('pause').textContent = 'השהיה';
+    document.getElementById('reset').textContent = 'איפוס';
+    document.querySelector('.metrics').innerHTML = 'רגעים קטנים <strong>62 פתקים</strong><br>מרחפים יחד <strong id="tracking">1,800 חלקיקים</strong><br>מצביע <strong id="pointer">0.00 / 0.00</strong><br>אווירה <strong>LOEVE</strong>';
+    document.getElementById('orb').setAttribute('aria-label', 'כדור תלת־ממדי מסתובב ואינטראקטיבי של חלקיקים');
+    note.setAttribute('dir', 'rtl');
+    note.innerHTML = '<div style="color:#ff7184;letter-spacing:.08em;font-size:10px">◈ פתק מספר <span id="nodeNumber"></span></div><h2 style="margin:12px 0;color:#fff;font-size:21px">אני אוהב את</h2><p id="noteText" style="color:#dcb7be"></p><div style="font-size:22px;color:#ff9baa;text-align:center">♥</div>';
+    // On mobile, keep the note below the headline by capping its height.
+    const headline = document.querySelector('.side');
+    function fitNote() {
+        let maxH = '';
+        if (window.innerWidth <= 600 && note.style.display !== 'none') {
+            const bottom = parseFloat(getComputedStyle(note).bottom) || 0;
+            const room = window.innerHeight - headline.getBoundingClientRect().bottom - bottom - 24;
+            maxH = Math.max(120, room) + 'px';
+        }
+        if (note.style.maxHeight !== maxH) note.style.maxHeight = maxH;
+    }
+    new MutationObserver(fitNote).observe(note, { attributes: true, attributeFilter: ['style'] });
+    window.addEventListener('resize', fitNote);
+    // Fill the note body from the notes list whenever a note opens.
+    const nodeNumber = document.getElementById('nodeNumber');
+    const noteText = document.getElementById('noteText');
+    new MutationObserver(() => {
+        noteText.textContent = notes[parseInt(nodeNumber.textContent, 10) - 1] || '';
+    }).observe(nodeNumber, { childList: true, characterData: true, subtree: true });
+    // Hide the decorative center circle and crosshair without affecting nodes.
+    const originalStroke = ctx.stroke.bind(ctx);
+    ctx.stroke = function(...args) {
+        const color = this.strokeStyle.replace(/\s+/g, '');
+        if (color === 'rgba(220,65,90,0.23)' || color === 'rgba(235,90,110,0.5)') return;
+        return originalStroke(...args);
+    };
+
+    // "Our love journal": a calendar with a heart on every day since we started.
+    const LOVE_START = new Date(2026, 8, 10); // September 10, 2026
+    const BLUE_START = new Date(2026, 7, 11); // August 11, 2026 (blue hearts until September 9)
+    const MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+    const dayKey = d => d.getFullYear() * 10000 + d.getMonth() * 100 + d.getDate();
+
+    const journalBtn = document.createElement('button');
+    journalBtn.id = 'journalBtn';
+    journalBtn.innerHTML = '♥ יומן האהבה שלנו';
+    const journal = document.createElement('div');
+    journal.id = 'journal';
+    journal.hidden = true;
+    journal.innerHTML = `
+        <div class="jCard" dir="rtl" role="dialog" aria-label="יומן האהבה שלנו">
+            <button class="jClose" aria-label="סגירה">×</button>
+            <h2>יומן האהבה שלנו</h2>
+            <div class="jCount"></div>
+            <div class="jNav">
+                <button class="jPrev" aria-label="החודש הקודם"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                <span class="jMonth"></span>
+                <button class="jNext" aria-label="החודש הבא"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            </div>
+            <div class="jGrid"></div>
+        </div>`;
+    document.body.append(journalBtn, journal);
+
+    let view = new Date();
+    view.setDate(1);
+    function renderJournal() {
+        const today = new Date();
+        const startKey = dayKey(LOVE_START), todayKey = dayKey(today);
+        const together = Math.floor((new Date(today.getFullYear(), today.getMonth(), today.getDate()) - LOVE_START) / 86400000) + 1;
+        journal.querySelector('.jCount').textContent = together > 0 ? `♥ ${together} ימים של אהבה` : '';
+        journal.querySelector('.jMonth').textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
+        let html = ['א','ב','ג','ד','ה','ו','ש'].map(d => `<div class="jHead">${d}</div>`).join('');
+        for (let i = 0; i < view.getDay(); i++) html += '<div></div>';
+        const daysInMonth = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+        for (let d = 1; d <= daysInMonth; d++) {
+            const key = dayKey(new Date(view.getFullYear(), view.getMonth(), d));
+            const cls = (key >= startKey && key <= todayKey ? ' love' : '')
+                + (key >= dayKey(BLUE_START) && key < startKey && key <= todayKey ? ' love blue' : '')
+                + (key === todayKey ? ' today' : '');
+            html += `<div class="jDay${cls}"><span>${d}</span></div>`;
+        }
+        journal.querySelector('.jGrid').innerHTML = html;
+    }
+    journalBtn.onclick = () => { view = new Date(); view.setDate(1); renderJournal(); journal.hidden = false; };
+    journal.querySelector('.jPrev').onclick = () => { view.setMonth(view.getMonth() - 1); renderJournal(); };
+    journal.querySelector('.jNext').onclick = () => { view.setMonth(view.getMonth() + 1); renderJournal(); };
+    journal.querySelector('.jClose').onclick = () => { journal.hidden = true; };
+    journal.addEventListener('click', e => { if (e.target === journal) journal.hidden = true; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') journal.hidden = true; });
+
+    // User guide: a "?" button that opens a short how-to. Opens by itself on the first visit.
+    const guideBtn = document.createElement('button');
+    guideBtn.id = 'guideBtn';
+    guideBtn.textContent = '?';
+    guideBtn.setAttribute('aria-label', 'מדריך');
+    const guide = document.createElement('div');
+    guide.id = 'guide';
+    guide.hidden = true;
+    guide.innerHTML = `
+        <div class="jCard gCard" dir="rtl" role="dialog" aria-label="מדריך">
+            <button class="jClose" aria-label="סגירה">×</button>
+            <h2>איך זה עובד?</h2>
+            <ul>
+                <li><b>♥ הנקודות הזוהרות</b> – בכדור יש 62 נקודות, ובכל אחת מחכה דבר אחד שאני אוהב בך. לחצי על נקודה כדי לפתוח את הפתק.</li>
+                <li><b>סגירת פתק</b> – לחצי שוב על אותה נקודה, על הפתק עצמו או בכל מקום אחר.</li>
+                <li><b>סיבוב הכדור</b> – גררי עם האצבע או עם העכבר כדי לסובב את הכדור ולמצוא עוד נקודות.</li>
+                <li><b>זום</b> – כמו שעושים זום בכל אפליקציה אחרת</li>
+                <li><b>יומן האהבה שלנו</b> – הכפתור למעלה פותח לוח שנה. כל יום שאנחנו ביחד מסומן בלב ורוד, ובחצים אפשר לעבור בין החודשים.</li>
+            </ul>
+            <button class="gStart">יאללה, בואי נתחיל ♥</button>
+        </div>`;
+    document.body.append(guideBtn, guide);
+    const closeGuide = () => { guide.hidden = true; };
+    guideBtn.onclick = () => { guide.hidden = false; };
+    guide.querySelector('.jClose').onclick = closeGuide;
+    guide.querySelector('.gStart').onclick = closeGuide;
+    guide.addEventListener('click', e => { if (e.target === guide) closeGuide(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGuide(); });
+    try {
+        if (!localStorage.getItem('guideSeen')) {
+            guide.hidden = false;
+            localStorage.setItem('guideSeen', '1');
+        }
+    } catch (e) {}
+});
+</script><style>
+:root{--site-primary:#24d9ee;--site-on-primary:#001419;--site-secondary:#123d50;--site-on-secondary:#e0faff;--site-background:#030a13;--site-on-background:#e8faff;--site-font-body:Inter,system-ui,sans-serif;--site-font-heading:Inter,system-ui,sans-serif;--site-heading-scale:1;--site-spacing-scale:1;--site-radius-scale:1;--site-decoration-opacity:1}*{box-sizing:border-box}body{margin:0}#app{min-height:100vh;width:100%;border-radius:0;background-color:var(--site-background);background-color:light-dark(var(--site-background),var(--site-background));color:var(--site-on-background);font-family:var(--site-font-body);overflow:hidden;position:relative}canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.hud{position:relative;z-index:2;pointer-events:none;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:calc(28px * var(--site-spacing-scale)) clamp(20px,4vw,64px)}header,.bottom{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.brand{font-weight:800;letter-spacing:.24em;font-size:calc(18px * var(--site-heading-scale));color:var(--site-primary)}.eyebrow{font-size:10px;letter-spacing:.32em;color:#83a9ba;margin-top:10px}.status{color:var(--site-primary);font-size:11px;letter-spacing:.16em;border:1px solid #1c5264;padding:12px 16px;background:#051d2ac9;border-radius:calc(4px * var(--site-radius-scale))}.dot{display:inline-block;width:7px;height:7px;background:#47e4b1;border-radius:50%;box-shadow:0 0 12px #47e4b1;margin-right:10px}.side{position:absolute;top:40%;left:clamp(20px,4vw,64px);max-width:220px}.side h1{font-size:calc(clamp(26px,3vw,46px) * var(--site-heading-scale));line-height:1.04;letter-spacing:-.04em;margin:0 0 14px}.side p{font-size:12px;line-height:1.8;color:#80a5b8}.line{width:44px;height:2px;background:var(--site-primary);margin:22px 0;box-shadow:0 0 14px var(--site-primary)}.panel{pointer-events:auto;background:#061925e8;border:1px solid #245064;border-radius:calc(12px * var(--site-radius-scale));padding:calc(20px * var(--site-spacing-scale));width:min(340px,100%);backdrop-filter:blur(14px)}.panel-title{font-size:10px;letter-spacing:.23em;color:#7faabb;margin-bottom:18px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 0;font-size:12px;color:#d2eefa}.row output{color:var(--site-primary);font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--site-primary);cursor:pointer}.actions{display:flex;gap:8px;margin-top:18px}button{pointer-events:auto;cursor:pointer;border:1px solid #36728a;background:var(--site-secondary);color:var(--site-on-secondary);border-radius:calc(6px * var(--site-radius-scale));padding:11px 13px;font:600 11px var(--site-font-body);letter-spacing:.09em;flex:1}button.active,button:hover{background:var(--site-primary);color:var(--site-on-primary)}.metrics{text-align:right;font-size:11px;line-height:2.2;color:#83a9ba;letter-spacing:.12em}.metrics strong{color:var(--site-primary);font-weight:600}.bottom{align-items:end}.footer{font-size:10px;letter-spacing:.17em;color:#527b8d}.decoration{opacity:var(--site-decoration-opacity);pointer-events:none}.grid{position:absolute;inset:0;background-image:linear-gradient(#1b4c631c 1px,transparent 1px),linear-gradient(90deg,#1b4c631c 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(ellipse at center,transparent 20%,black 95%)}@media(max-width:800px){.hud{padding:18px;min-height:100svh}.side{top:100px;left:18px;max-width:180px}.side h1{font-size:24px}.side p{font-size:11px}.bottom{gap:10px}.panel{width:min(280px,75vw);padding:14px}.metrics{font-size:9px}.status{font-size:9px;padding:8px}.brand{font-size:14px}}@media(max-width:520px){.side{top:88px}.side p{display:none}.side h1{font-size:19px}.bottom{flex-direction:column-reverse;align-items:stretch}.metrics{text-align:left}.panel{width:100%}.footer{display:none}}
+:root{--site-primary:#ff799f;--site-on-primary:#350c25;--site-secondary:#69243f;--site-on-secondary:#fff0f4;--site-background:#1a0918;--site-on-background:#ffe7f0}
+#app{background:radial-gradient(ellipse at 50% 46%,#472039 0%,#230e24 53%,#140917 100%);color:var(--site-on-background)}
+.brand{color:#ff9ebd}.eyebrow,.side p,.metrics,.footer{color:#dba5ba}.side h1{color:#ffe5ef}.status{color:#ffd7e5;border-color:#a75073;background:#3a1632cc}.dot{background:#ff91b3;box-shadow:0 0 12px #ff91b3}.line{background:#ff8cb0;box-shadow:0 0 14px #ff8cb0}
+.grid{background-image:linear-gradient(#ef91b00c 1px,transparent 1px),linear-gradient(90deg,#ef91b00c 1px,transparent 1px)}
+.panel{display:none!important}.bottom{justify-content:flex-end}.metrics{display:none!important}.status{display:none!important}.side{top:28px;left:clamp(20px,4vw,64px)}header>div:first-child{display:none!important}
+#nodeNote{background:#fff0ad!important;color:#68434c!important;border:0!important;border-radius:3px 18px 4px 5px!important;box-shadow:6px 12px 30px #10061080, inset 0 -4px 0 #efce75!important;transform:rotate(-2deg);padding:30px 24px 26px!important;font-family:var(--site-font-body)!important}
+#nodeNote:before{content:"";position:absolute;top:0;right:0;border-width:0 26px 26px 0;border-style:solid;border-color:transparent #e9c877 transparent transparent;filter:drop-shadow(-2px 3px 2px #9a774555)}
+#nodeNote h2{color:#74334c!important;font-family:var(--site-font-heading);font-size:calc(24px * var(--site-heading-scale))!important}
+#nodeNote p{color:#805967!important;font-size:14px}
+#nodeNote div{color:#b16a7e!important}
+@media(max-width:520px){.bottom{display:none}.side{top:96px}}
+#viewToggle{position:absolute;z-index:6;right:clamp(20px,4vw,64px);top:88px;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #ff9bbb80;border-radius:999px;background:#36162ddc;color:#ffe8f0;font:600 11px var(--site-font-body);letter-spacing:.07em;cursor:pointer;box-shadow:0 5px 24px #17081870;pointer-events:auto}
+#viewToggle .switchTrack{display:inline-flex;width:38px;height:21px;border-radius:20px;background:#8d4769;align-items:center;padding:3px;transition:background .2s}
+#viewToggle .switchKnob{width:15px;height:15px;border-radius:50%;background:#fff0f5;transition:transform .2s}
+#viewToggle[aria-pressed="true"] .switchTrack{background:#ef729d}
+#viewToggle[aria-pressed="true"] .switchKnob{transform:translateX(17px)}
+#viewToggle:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:520px){#viewToggle{top:67px;right:18px;padding:8px 10px;font-size:10px}}
+.heartBackdrop{position:absolute;z-index:0;inset:0;display:grid;place-items:center;pointer-events:none;overflow:hidden}
+.heartBackdrop svg{width:min(78vw,760px);height:min(86vh,700px);opacity:.29;filter:drop-shadow(0 0 14px #fa7395a0);transform:translateY(1%);max-width:100%}
+#orb{z-index:1}
+#app{min-height:100vh;min-height:100dvh;isolation:isolate}
+.hud{min-height:100vh;min-height:100dvh}
+#nodeNote{max-width:calc(100vw - 32px);max-height:min(65dvh,480px);overflow-y:auto}
+@media(max-width:900px){.heartBackdrop svg{width:min(90vw,650px)}.side{max-width:190px}.hud{padding:clamp(16px,3vw,28px)}.status{font-size:10px}.metrics{font-size:9px}}
+@media(max-width:600px){.heartBackdrop svg{width:110vw;max-width:none;height:75dvh;opacity:.23}.hud{padding:16px}.side{top:126px;left:18px;max-width:min(66vw,260px)}.side h1{font-size:clamp(21px,6vw,32px)}.side p{display:block;font-size:11px;line-height:1.45}.side .line{margin:12px 0}.status{display:none}.eyebrow{font-size:8px;letter-spacing:.16em}#viewToggle{top:20px;right:16px;gap:7px;padding:8px 10px;font-size:9px}.bottom{display:none}#nodeNote{top:auto!important;bottom:clamp(18px,5dvh,46px)!important;left:50%!important;right:auto!important;width:min(330px,calc(100vw - 36px))!important;transform:translateX(-50%) rotate(-2deg)!important;padding:20px!important}}
+@media(max-width:360px){.brand{font-size:13px}.eyebrow{max-width:160px;line-height:1.4}#viewToggle{font-size:8px;right:10px}.side{top:110px}}
+@media(max-height:520px) and (orientation:landscape){.side{top:72px;max-width:190px}.side p{display:none}.heartBackdrop svg{height:100dvh;width:65vw}.hud{padding:12px 20px}#viewToggle{top:16px;right:20px}#nodeNote{top:15%!important;bottom:auto!important;right:18px!important;left:auto!important;transform:rotate(-2deg)!important;max-height:75dvh}}
+.side{top:clamp(20px,4vw,48px)}
+@media(max-width:600px){.side{top:20px;right:18px;left:auto}}
+@media(max-height:520px) and (orientation:landscape){.side{top:12px}}
+.footer{display:none!important}
+.side{direction:rtl;text-align:right;right:clamp(20px,4vw,64px);left:auto}
+#nodeNote{direction:rtl;text-align:right}
+@media(min-width:601px){#nodeNote{left:clamp(18px,5vw,70px)!important;right:auto!important}}
+#journalBtn{position:fixed;z-index:8;top:calc(clamp(16px,3vw,28px) + env(safe-area-inset-top,0px));left:clamp(16px,4vw,64px);padding:9px 15px;border:1px solid #ff9bbb80;border-radius:999px;background:#36162ddc;color:#ffe8f0;font:600 12px var(--site-font-body);cursor:pointer;box-shadow:0 5px 24px #17081870;direction:rtl}
+#journalBtn:hover{background:#4a1d3ddc}
+#guideBtn{position:fixed;z-index:8;top:calc(clamp(16px,3vw,28px) + 46px + env(safe-area-inset-top,0px));left:clamp(16px,4vw,64px);width:34px;height:34px;padding:0;display:grid;place-items:center;border:1px solid #ff9bbb80;border-radius:50%;background:#36162ddc;color:#ffe8f0;font:700 15px var(--site-font-body);cursor:pointer;box-shadow:0 5px 24px #17081870}
+#guideBtn:hover{background:#4a1d3ddc}
+#guide{position:fixed;inset:0;z-index:21;display:grid;place-items:center;padding:16px;background:#12051099;backdrop-filter:blur(4px)}
+#guide[hidden]{display:none!important}
+.gCard{text-align:right}
+.gCard h2{text-align:center;margin-bottom:12px}
+.gCard ul{margin:0;padding:0 18px 0 0;font-size:14px;line-height:1.6;color:#805967}
+.gCard li{margin-bottom:9px}
+.gCard b{color:#74334c}
+.gStart{display:block;margin:14px auto 0;padding:10px 20px;border:0;border-radius:999px;background:#ff799f;color:#fff;font:700 14px var(--site-font-body);cursor:pointer}
+.gStart:hover{background:#f0608a}
+#journal{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px;background:#12051099;backdrop-filter:blur(4px)}
+#journal[hidden]{display:none!important}
+.jCard{position:relative;width:min(360px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;padding:26px 22px 22px;background:#fff0ad;color:#68434c;border-radius:4px 18px 6px 6px;box-shadow:6px 12px 30px #10061080,inset 0 -4px 0 #efce75;text-align:center;font-family:var(--site-font-body)}
+.jCard h2{margin:0 0 4px;color:#74334c;font-family:var(--site-font-heading);font-size:22px}
+.jCount{color:#b16a7e;font-size:13px;margin-bottom:14px;text-align:center;direction:rtl}
+.jClose{position:absolute;top:8px;left:12px;border:0;background:none;color:#b16a7e;font-size:24px;line-height:1;cursor:pointer}
+.jNav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-weight:700;color:#74334c}
+.jNav button{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;padding:0;margin:0;border:0;border-radius:50%;background:#f5dc8a;color:#74334c;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,transform .15s}
+.jNav button:hover{background:#efce75}
+.jNav button:active{transform:scale(.92)}
+.jNav button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.jMonth{flex:1;font-size:16px}
+.jGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.jHead{font-size:11px;font-weight:700;color:#b16a7e;padding:4px 0}
+.jDay{position:relative;display:grid;place-items:center;aspect-ratio:1;font-size:13px;color:#805967}
+.jDay span{position:relative;z-index:1}
+.jDay.love{color:#fff;font-weight:700}
+.jDay.love:before{content:"♥";position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(30px,9vw,38px);line-height:1;color:#ff799f}
+.jDay.blue:before{color:#5aa9f0}
+.jDay.today:before{color:#e0406f;text-shadow:0 0 8px #ff799f}
+.jDay.today:not(.love){outline:2px solid #ff799f;border-radius:50%}
+</style></head><body><main id="app"><div class="grid decoration"></div><canvas id="orb" aria-label="Interactive rotating three-dimensional particle sphere"></canvas><div class="hud"><header><div><div class="brand">LOEVE<span style="color:#e9a7bf"> / NOTES</span></div><div class="eyebrow">A UNIVERSE OF LITTLE MOMENTS</div></div><div class="status"><span class="dot"></span> LOVE IS IN THE AIR</div></header><div class="side"><h1>Little notes,<br><span style="color:var(--site-primary)">big feelings.</span></h1><div class="line decoration"></div><p>Fifty little notes floating together. Select a glowing dot to discover one.</p></div><div class="bottom"><div class="panel"><div class="panel-title">◈ FIELD CONTROLS</div><div class="row"><label for="density">PARTICLE DENSITY</label><output id="densityOut">1800</output></div><input id="density" type="range" min="500" max="4000" step="100" value="1800"><div class="row"><label for="speed">FLOW VELOCITY</label><output id="speedOut">0.2×</output></div><input id="speed" type="range" min="0" max="3" step="0.1" value="0.2"><div class="actions"><button id="mode" class="active">INSIDE VIEW</button><button id="pause">PAUSE</button><button id="reset">RESET</button></div></div><div class="metrics">LITTLE MOMENTS <strong>50 NOTES</strong><br>FLOATING TOGETHER <strong id="tracking">1,800 NODES</strong><br>POINTER <strong id="pointer">0.00 / 0.00</strong><br>MOOD <strong>LOEVE</strong></div></div><div class="footer">LOEVE — A LITTLE UNIVERSE OF NOTES</div></div></main><script>
+const canvas=document.getElementById('orb'),ctx=canvas.getContext('2d');const density=document.getElementById('density'),speed=document.getElementById('speed'),densityOut=document.getElementById('densityOut'),speedOut=document.getElementById('speedOut');let W=0,H=0,dpr=1,points=[],yaw=.25,pitch=.1,zoom=1,inside=true,paused=false,drag=false,lastX=0,lastY=0,t=0,selected=null,hitNodes=[],downX=0,downY=0;const note=document.createElement('aside');note.id='nodeNote';note.style.cssText='display:none;position:absolute;z-index:5;right:clamp(18px,5vw,70px);top:22%;width:min(300px,80vw);padding:22px;background:#210c13f2;border:1px solid #ff5b70;border-radius:12px;box-shadow:0 0 35px #ff344533;color:#ffe6e9;font:13px/1.7 Inter,system-ui,sans-serif;pointer-events:auto';note.innerHTML='<div style="color:#ff7184;letter-spacing:.2em;font-size:10px">◈ ACTIVE NODE <span id="nodeNumber"></span></div><h2 style="margin:12px 0;color:#fff;font-size:21px">Node note</h2><p style="color:#dcb7be">This is a sample note attached to this particle. Each of the 50 red nodes can hold its own content.</p><div style="font-size:11px;color:#ff9baa">Click the node again or anywhere else to close.</div>';document.getElementById('app').append(note);function closeNote(){selected=null;note.style.display='none'}function resize(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}window.addEventListener('resize',resize);resize();function generate(){let n=+density.value;points=[];for(let i=0;i<n+62;i++){let z=1-2*(i+.5)/(n+62),theta=i*2.399963229728653,rad=Math.sqrt(1-z*z);points.push({x:Math.cos(theta)*rad,y:z,z:Math.sin(theta)*rad,phase:Math.random()*6.283,size:i<62?3.5:Math.random()*.65+.35,clickable:i<62,id:i+1})}densityOut.textContent=n.toLocaleString();document.getElementById('tracking').textContent='62 ACTIVE / '+n.toLocaleString()+' AMBIENT';closeNote()}generate();density.addEventListener('input',generate);speed.addEventListener('input',()=>speedOut.textContent=(+speed.value).toFixed(1)+'×');document.getElementById('pause').onclick=e=>{paused=!paused;e.target.textContent=paused?'RESUME':'PAUSE';e.target.classList.toggle('active',paused)};document.getElementById('mode').onclick=e=>{inside=!inside;closeNote();e.target.textContent=inside?'INSIDE VIEW':'EXTERNAL VIEW';e.target.classList.toggle('active',inside)};document.getElementById('reset').onclick=()=>{yaw=.25;pitch=.1;zoom=1;inside=true;closeNote();document.getElementById('mode').textContent='INSIDE VIEW';document.getElementById('mode').classList.add('active')};canvas.addEventListener('pointerdown',e=>{drag=true;downX=lastX=e.clientX;downY=lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointerup',e=>{drag=false;if(Math.hypot(e.clientX-downX,e.clientY-downY)>7)return;let r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let nearest=null,best=16;for(let a of hitNodes){let dist=Math.hypot(a.sx-x,a.sy-y);if(dist<best){best=dist;nearest=a}}if(nearest&&selected!==nearest.p.id){selected=nearest.p.id;document.getElementById('nodeNumber').textContent=String(selected).padStart(2,'0');note.style.display='block'}else closeNote()});canvas.addEventListener('pointermove',e=>{if(drag){yaw+=(e.clientX-lastX)*.005;pitch=Math.max(-1.4,Math.min(1.4,pitch+(e.clientY-lastY)*.005));lastX=e.clientX;lastY=e.clientY}let r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;canvas.style.cursor=hitNodes.some(a=>Math.hypot(a.sx-x,a.sy-y)<16)?'pointer':drag?'grabbing':'grab';document.getElementById('pointer').textContent=((x/W)*2-1).toFixed(2)+' / '+((y/H)*2-1).toFixed(2)});canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.45,Math.min(2.4,zoom+e.deltaY*.0007))},{passive:false});document.addEventListener('pointerdown',e=>{if(!canvas.contains(e.target)&&!note.contains(e.target))closeNote()});note.addEventListener('click',closeNote);function render(){requestAnimationFrame(render);if(!paused)t+=.004*(+speed.value);ctx.clearRect(0,0,W,H);const cx=W*(W<800?.52:.54),cy=H*(W<520?.5:.49),radius=Math.min(W*.66,H*.82)*zoom*(inside?1.05:.48),cyaw=Math.cos(yaw+t*.13),syaw=Math.sin(yaw+t*.13),cp=Math.cos(pitch),sp=Math.sin(pitch);let visible=[];for(let p of points){let flow=t*(.16+.12*Math.sin(p.y*3))+p.phase*.035,x=p.x*Math.cos(flow)-p.z*Math.sin(flow),z=p.x*Math.sin(flow)+p.z*Math.cos(flow),y=p.y,x1=x*cyaw-z*syaw,z1=x*syaw+z*cyaw,y1=y*cp-z1*sp,z2=y*sp+z1*cp,perspective=inside?1/(1+z2*.30):1/(1+z2*.18),sx=cx+x1*radius*perspective,sy=cy+y1*radius*perspective;if(sx<0||sx>W||sy<0||sy>H)continue;visible.push({sx,sy,z:z2,p,alpha:Math.max(.14,Math.min(1,.55-z2*.32)),scale:perspective})}visible.sort((a,b)=>b.z-a.z);hitNodes=visible.filter(a=>a.p.clickable);const glow=ctx.createRadialGradient(cx,cy,0,cx,cy,radius*1.2);glow.addColorStop(0,'rgba(100,10,25,.10)');glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);for(let a of visible){let active=a.p.clickable,flicker=.8+.2*Math.sin(t*3+a.p.phase),r=Math.max(.4,a.p.size*a.scale*(inside?1.1:1.35));if(active){ctx.shadowColor='#ff354e';ctx.shadowBlur=selected===a.p.id?28:13}ctx.beginPath();ctx.fillStyle=active?'rgba(255,75,96,'+a.alpha*flicker+')':'rgba(138,37,53,'+a.alpha*flicker*.50+')';ctx.arc(a.sx,a.sy,r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;if(selected===a.p.id){ctx.strokeStyle='#ff8b9a';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(a.sx,a.sy,r+8,0,Math.PI*2);ctx.stroke()}}ctx.save();ctx.strokeStyle='rgba(220,65,90,.23)';ctx.lineWidth=1;ctx.setLineDash([4,9]);ctx.beginPath();ctx.arc(cx,cy,Math.min(W,H)*.055,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='rgba(235,90,110,.5)';let s=14;ctx.beginPath();ctx.moveTo(cx-s,cy);ctx.lineTo(cx-5,cy);ctx.moveTo(cx+5,cy);ctx.lineTo(cx+s,cy);ctx.moveTo(cx,cy-s);ctx.lineTo(cx,cy-5);ctx.moveTo(cx,cy+5);ctx.lineTo(cx,cy+s);ctx.stroke();ctx.restore()}render();</script></body></html>
